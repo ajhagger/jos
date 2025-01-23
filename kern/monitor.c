@@ -27,6 +27,7 @@ struct Command {
 static struct Command commands[] = {
 	{ "help", "Display this list of commands", mon_help },
 	{ "kerninfo", "Display information about the kernel", mon_kerninfo },
+	{  "backtrace", "Display Backrace", mon_backtrace},
 	{ "hidden", "Run hidden test cases", exec_hidden_cases},
 };
 
@@ -64,6 +65,8 @@ mon_backtrace(int argc, char **argv, struct Trapframe *tf)
 	// LAB 1: Your code here.
     // HINT 1: use read_ebp().
     // HINT 2: print the current ebp on the first line (not current_ebp[0])
+	uint32_t cur_ebp = read_ebp();
+	cprintf("read_ebp: %d", cur_ebp);
 	return 0;
 }
 
