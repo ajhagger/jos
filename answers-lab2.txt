@@ -1,0 +1,9 @@
+a. All virtual addresses are filled in at this point. Not every address points to something yet, since not every page table is allocated at initialization. Many of them are initialized however, because of the various data structures used for the kernel.
+
+b. User programs won't be able to read or write the kernel's memory because of the permission system put in place by the OS. Page table entry permissions are set by the OS based on the requesting process's Current Privilege Level.
+
+c. The maximum supported physical memory is 4GB. This is because the page directory has 1K entries, each mapping to 1K page table entries of 4KB each. 1K * 1K * 4KB = 4GB
+
+d. The overhead to our implementation of memory management is 11KB.
+
+e. 
